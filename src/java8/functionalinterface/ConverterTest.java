@@ -1,5 +1,8 @@
 package java8.functionalinterface;
 
+import java.util.Collections;
+import java.util.List;
+
 class ConverterTest {
 	
 	public static void main(String[] a) {
@@ -25,7 +28,6 @@ class ConverterTest {
 		//Converter<String,Character> strConverter = (from) -> myStringUtil.firstChar(from);
 		Converter<String,Character> strConverter = myStringUtil::firstChar;
 		System.out.println("first char: " + strConverter.convert("Prashant"));
-		
 		
 	}
 }
