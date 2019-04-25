@@ -10,8 +10,8 @@
 *.zip
 *.tar.gz
 *.rar
-
-
+*.class
+bin/
 out/
 .idea/
 *.iml
