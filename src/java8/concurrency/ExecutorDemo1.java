@@ -1,5 +1,6 @@
 package java8.concurrency;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -14,25 +15,36 @@ class ExecutorDemo1 {
 
 		ExecutorService executor = Executors.newSingleThreadExecutor();
 		executor.submit(() -> {
+			
 			String threadName = Thread.currentThread().getName();
 			System.out.println("Hello " + threadName);
+			
+			try {
+				TimeUnit.SECONDS.sleep(10);
+				System.out.println("Task completed..");
+				return 123;
+			} catch (InterruptedException e) {
+				throw new IllegalStateException("task interrupted", e);
+			}
 		});
 
 		try {
-			System.out.println("attempt to shutdown executor");
+			System.out.println("attempting to shutdown executor");
 			executor.shutdown();
-			executor.awaitTermination(5, TimeUnit.SECONDS);
+			executor.awaitTermination(1, TimeUnit.SECONDS);
+			System.out.println("after awaiting termination...");
 			
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			System.err.println("tasks interrupted");
 			
 		} finally {
 			if (!executor.isTerminated()) {
-				System.err.println("cancel non-finished tasks");
+				System.err.println("Couldn't terminate as there are unfinished tasks");
 			}else {
-				System.err.println("executor already finished execution...");
+				System.err.println("Executor successfully finished execution...");
 			}
-			executor.shutdownNow();
+			List<Runnable> awaitingExecTasks = executor.shutdownNow();
+			System.out.println("awaitingExecTasks: " + awaitingExecTasks);
 			System.out.println("shutdown finished");
 		}
 

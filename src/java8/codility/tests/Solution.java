@@ -35,8 +35,7 @@ class Solution {
 
 		Integer reference = 1000001;
 		Integer missing = 1000001;
-		for (Integer i : set) {
-			System.out.println("i: " + i);
+		for (Integer i : set) {			
 			
 			if (reference == 1000001) {
 				reference = i;
@@ -48,6 +47,7 @@ class Solution {
 					break;
 				}
 			}
+			System.out.println("i: " + i + ", reference: " + reference);
 
 		}
 		
@@ -63,8 +63,8 @@ class Solution {
 	}
 
 	public static void main(String[] a) {
-		//[1, 3, 6, 4, 1, 2] 
-		int[] testArray = new int[] {-1, -3};
+		//[1, 3, 6, 4, 1, 2] or [-3,-2]
+		int[] testArray = new int[] {1, 3, 6, 4, 1, 2};
 		int returnVal = solution(testArray);
 		System.out.println("returnVal: " + returnVal);
 	}

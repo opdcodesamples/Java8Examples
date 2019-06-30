@@ -15,7 +15,7 @@ class PersonTest {
 		// creating person through functional interface
 		PersonFactory<Person> personFactory = Person::new;
 		
-		Person person = personFactory.create("Osmand", "Das");
+		Person person = personFactory.construct("Osmand", "Das");
 		System.out.println("Person is: " + person.getFirstName());
 	}
 
