@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,7 @@ class Solution {
 		 */
 		
 		List<Integer> list = Arrays.stream(A).boxed().sorted(Comparator.comparingInt(o -> o)).collect(Collectors.toList());
+		
 		System.out.println("list: " + list);
 		Set<Integer> set = new TreeSet<>(list);
 		

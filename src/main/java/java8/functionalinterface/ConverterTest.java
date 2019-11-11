@@ -1,8 +1,5 @@
 package java8.functionalinterface;
 
-import java.util.Collections;
-import java.util.List;
-
 class ConverterTest {
 	
 	public static void main(String[] a) {

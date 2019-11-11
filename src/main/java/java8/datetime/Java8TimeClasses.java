@@ -22,7 +22,7 @@ class Java8TimeClasses {
 			System.out.println("System milliseconds: " + systemCurrentMilliseconds);
 			System.out.println("System - Instant milliseconds " + (systemCurrentMilliseconds - instantMilliseconds));
 			
-			System.out.println("Date: " + new Date());
+			System.out.println("Plain Date: " + new Date());
 			
 			ZonedDateTime zdt = ZonedDateTime.now();
 			System.out.println("ZonedDateTime: " + zdt);
@@ -48,7 +48,7 @@ class Java8TimeClasses {
 			cal.setTime(new Date());
 			System.out.println("Calendar getTime: " + cal.getTime());
 			
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			System.out.println(sdf.parse("02-03-2015"));
 			
 			
