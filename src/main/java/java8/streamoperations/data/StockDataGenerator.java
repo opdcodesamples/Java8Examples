@@ -3,7 +3,7 @@ package java8.streamoperations.data;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-import java8.streamoperations.models.Stock;
+import java8.models.Stock;
 
 public class StockDataGenerator {
 	

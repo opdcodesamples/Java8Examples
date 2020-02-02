@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import java8.streamoperations.data.EmployeeGenerator;
-import java8.streamoperations.models.Employee;
-import java8.streamoperations.models.Parent;
+import java8.models.Employee;
+import java8.models.Parent;
+import java8.sorting.employee.EmployeeGenerator;
 
 public class ConvertListOfOneTypeToAnother {
 

@@ -3,8 +3,8 @@ package java8.streamoperations;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import java8.models.Stock;
 import java8.streamoperations.data.StockDataGenerator;
-import java8.streamoperations.models.Stock;
 
 public class AggregationOperations {
 

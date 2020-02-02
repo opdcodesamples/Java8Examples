@@ -12,8 +12,10 @@ class MovingAverageDemo {
 	public static void main(String[] args) {
 		int[] numbers = new int[] {20,22,24,25,23,26,28,26,29,27,28,30,27,29,28};
 		
+		// converting a stream of integers to a integer stream in order to perform statistical operations
 		OptionalDouble average = Arrays.stream(numbers).boxed().limit(10).mapToInt((a) -> a).average();
 		
+		// this is just for demonstration purpose
 		OptionalDouble average2 = Arrays.stream(numbers).boxed().limit(10).mapToInt(Integer::new).average();
 		
 		
@@ -21,10 +23,10 @@ class MovingAverageDemo {
 			double startingAvg =  average.getAsDouble();
 			System.out.println("Average of first 10: " + startingAvg);
 			int skipCount = 1;
-			for(int i = 10; i <numbers.length; ++ i) {
-				OptionalDouble averageMoving = Arrays.stream(numbers).boxed().skip(skipCount++).limit(10).mapToInt((a) -> a).average();
-				if(averageMoving.isPresent()) {
-					double movingAvg =  averageMoving.getAsDouble();
+			for(int i = 0; i <numbers.length; ++ i) {
+				OptionalDouble movingAvgOption = Arrays.stream(numbers).boxed().skip(skipCount++).limit(10).mapToInt((a) -> a).average();
+				if(movingAvgOption.isPresent()) {
+					double movingAvg =  movingAvgOption.getAsDouble();
 					System.out.println("Moving Average of next 10: " + movingAvg);
 				}
 			}

@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 public class RepeatingAnnotations {
  
    @Retention( RetentionPolicy.RUNTIME )
-   @interface Cars {
+   @interface Manufacturers {
         Manufacturer[] value() default{};
     }
  
@@ -20,7 +20,7 @@ public class RepeatingAnnotations {
     }
  
  
-    @Repeatable(value = Cars.class )
+    @Repeatable(value = Manufacturers.class )
     public @interface Manufacturer {
         String value();
  
@@ -35,7 +35,7 @@ public class RepeatingAnnotations {
  
         System.out.println("\n-------Printing out Car Manufacturers--------");
  
-        Cars cars = Car.class.getAnnotation(Cars.class);
+        Manufacturers cars = Car.class.getAnnotation(Manufacturers.class);
         for(Manufacturer car: cars.value()){
             System.out.println(car.value());
         }

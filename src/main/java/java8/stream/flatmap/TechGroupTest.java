@@ -2,7 +2,9 @@ package java8.stream.flatmap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 class TechGroupTest {
@@ -15,6 +17,7 @@ class TechGroupTest {
 		techGroupList.add(new TechnologyGroup("Node", new String[]{"Osmand","Vineet"}));
 		techGroupList.add(new TechnologyGroup("Oracle", new String[]{"Osmand","Anuj","Prashant", "Amit"}));
 		
+		
 		List<String> technologyGroup = techGroupList.
 				stream().
 				map(TechnologyGroup::getTechMembers).
@@ -23,7 +26,10 @@ class TechGroupTest {
 				sorted().
 				collect(Collectors.toList());
 		
-		System.out.println("Technology Group: " + technologyGroup);
+		
+		
+		 
+		System.out.println("Technology Group: " + technologyGroup); 
 
 	}
 

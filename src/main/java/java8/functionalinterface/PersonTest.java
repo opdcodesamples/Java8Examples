@@ -1,5 +1,7 @@
 package java8.functionalinterface;
 
+import java8.models.Person;
+
 class PersonTest {
 
 	public static void main(String[] args) {
