@@ -1,4 +1,4 @@
-package java8.codility.tests;
+package java8.test;
 
 import java.util.Arrays;
 import java.util.Comparator;

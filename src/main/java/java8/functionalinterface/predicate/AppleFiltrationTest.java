@@ -2,6 +2,7 @@ package java8.functionalinterface.predicate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -22,28 +23,29 @@ class AppleFiltrationTest {
 		appleList.add(new Apple(60.33, "Green"));
 		appleList.add(new Apple(65.33, "Red"));
 
-		final List<Apple> filteredAppleList1 = filterApples(appleList, (Apple a) -> "Green".equals(a.getColor()));
+		final List<Apple> filteredAppleList1 = filterApples(appleList, a -> "Green".equals(a.getColor()), a -> System.out.println(a.toString()) );
 		System.out.println("Green Apples using Predicate: " + filteredAppleList1);
 		
 		final List<Apple> greenApples = appleList.stream().filter(a -> "Green".equals(a.getColor())).collect(Collectors.toList());
 		System.out.println("Green Apples using stream: " + greenApples);
 		
-		final List<Apple> filteredAppleList2 = filterApples(appleList, (Apple a) -> "Red".equals(a.getColor()));
+		final List<Apple> filteredAppleList2 = filterApples(appleList, a -> "Red".equals(a.getColor()), a -> System.out.println(a.toString()));
 		System.out.println("Red Apples: " + filteredAppleList2);
 		
-		final List<Apple> filteredAppleList3 = filterApples(appleList, (Apple a) -> a.getWeight() > 50);
+		final List<Apple> filteredAppleList3 = filterApples(appleList, a -> a.getWeight() > 50, a -> System.out.println(a.toString()));
 		System.out.println("Apples heavier than 50 grams: " + filteredAppleList3);
 		
-		final List<Apple> filteredAppleList4 = filterApples(appleList, (Apple a) -> a.getWeight() > 50 && "Green".equals(a.getColor()));
+		final List<Apple> filteredAppleList4 = filterApples(appleList, (Apple a) -> a.getWeight() > 50 && "Green".equals(a.getColor()), a -> System.out.println(a.toString()));
 		System.out.println("Green Apples heavier than 50 grams: " + filteredAppleList4);
 
 	}
 
-	private static List<Apple> filterApples(List<Apple> appleList, Predicate<Apple> p) {
+	private static List<Apple> filterApples(List<Apple> appleList, Predicate<Apple> p, Consumer<Apple> consumer) {
 		List<Apple> filteredAppleList = new ArrayList<>();
 		for (Apple apple : appleList) {
 			if (p.test(apple)) {
 				filteredAppleList.add(apple);
+				consumer.accept(apple);
 			}
 		}
 		return filteredAppleList;
