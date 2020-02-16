@@ -1,12 +1,12 @@
-package java8.stream.flatmap;
+package java8.models;
 
-import java.util.Arrays;
+import java.util.List;
 
-class TechnologyGroup {
+public class TechnologyGroup {
 	private String techName;
-	private String[] techMembers;
+	private List<String> techMembers;
 	
-	public TechnologyGroup(String techName, String[] techMembers){
+	public TechnologyGroup(String techName, List<String> techMembers){
 		this.techName = techName;
 		this.techMembers = techMembers;
 	}
@@ -19,17 +19,17 @@ class TechnologyGroup {
 		this.techName = techName;
 	}
 
-	public String[] getTechMembers() {
+	public List<String> getTechMembers() {
 		return techMembers;
 	}
 
-	public void setTechMembers(String[] techMembers) {
+	public void setTechMembers(List<String> techMembers) {
 		this.techMembers = techMembers;
 	}
 
 	@Override
 	public String toString() {
-		return "TechnologyGroup [techName=" + techName + ", techMembers=" + Arrays.toString(techMembers) + "]";
+		return "TechnologyGroup [techName=" + techName + ", techMembers=" + techMembers + "]";
 	}
 
 }
