@@ -2,9 +2,10 @@ package java8.stream.flatmap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import java8.models.TechnologyGroup;
 
@@ -27,21 +28,36 @@ class TechGroupTest {
 				sorted().
 				collect(Collectors.toList());
 		
-		//foos.forEach(f -> IntStream.range(1, 4).forEach(i -> f.bars.add(new Bar("Bar" + i + " <- " + f.name))));
-
-		//foos.stream().flatMap(f -> f.bars.stream()).forEach(b -> System.out.println(b.name));
+		Map<String, List<String>> identityMap = new HashMap<>();
 		
-		techGroupList.forEach(tg -> IntStream.range(0, tg.getTechMembers().size())
-				.forEach(i -> System.out.println(tg.getTechName() + " - tech member: " + tg.getTechMembers().get(i))));
-		
-		//techGroupList.stream().map(tg -> tg.getTechMembers().stream().iterator(). );
-		
-		
+		System.out.println(techGroupList.stream().reduce(identityMap, (accumulatorMap, tg ) -> accumulator(accumulatorMap, tg), (toBeCombinedMap1,toBeCombinedMap2) -> combiner(toBeCombinedMap1, toBeCombinedMap2) )
+				);
 		
 		 
-		System.out.println("Technology Group: " + technologyGroup); 
+		//System.out.println("Technology Group: " + technologyGroup); 
 		//System.out.println("Technology Group: " + technologyGroup1); 
 
+	}
+	
+	public static Map<String, List<String>> accumulator(Map<String, List<String>> accumulatorMap, TechnologyGroup tg) {
+		
+		System.out.println("in accumulator ......... " + accumulatorMap);
+		
+		for(String name: tg.getTechMembers()) {
+			if(accumulatorMap.containsKey(name)) {
+				accumulatorMap.get(name).add(tg.getTechName());
+			} else {
+				List<String> technologies = new ArrayList<>();
+				technologies.add(tg.getTechName());
+				accumulatorMap.put(name,technologies);
+			}
+		}
+		
+		return accumulatorMap;
+	}
+	
+	public static Map<String, List<String>> combiner(Map<String, List<String>> toBeCombinedMap1, Map<String, List<String>> toBeCombinedMap2) {
+		return null;
 	}
 
 }
