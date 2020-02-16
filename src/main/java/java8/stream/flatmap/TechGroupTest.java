@@ -28,14 +28,37 @@ class TechGroupTest {
 				sorted().
 				collect(Collectors.toList());
 		
+		System.out.println(technologyGroup);
+		
 		Map<String, List<String>> identityMap = new HashMap<>();
 		
-		System.out.println(techGroupList.stream().reduce(identityMap, (accumulatorMap, tg ) -> accumulator(accumulatorMap, tg), (toBeCombinedMap1,toBeCombinedMap2) -> combiner(toBeCombinedMap1, toBeCombinedMap2) )
+		System.out.println(
+				techGroupList
+				.stream()
+				.reduce(
+						identityMap, 
+						(accumulatorMap, tg ) -> accumulator(accumulatorMap, tg), 
+						(toBeCombinedMap1,toBeCombinedMap2) -> combiner(toBeCombinedMap1, toBeCombinedMap2) 
+						)
 				);
 		
-		 
-		//System.out.println("Technology Group: " + technologyGroup); 
-		//System.out.println("Technology Group: " + technologyGroup1); 
+		
+		/*
+		System.out.println(techGroupList.stream().reduce(
+					identityMap, 
+					(accumulatorMap, tg ) ->  
+					tg.getTechMembers()
+					.stream()
+					.reduce( 
+							accumulatorMap, 
+							(map, name) ->  { return accumulatorMap.containsKey(name)? 
+											accumulatorMap.get(name).add(tg.getTechName()) :  
+											accumulatorMap.put(name, Arrays.asList(tg.getTechName())); })
+							 , 
+					(toBeCombinedMap1,toBeCombinedMap2) -> combiner(toBeCombinedMap1, toBeCombinedMap2) )
+				);
+		
+		*/
 
 	}
 	
