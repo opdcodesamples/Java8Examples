@@ -37,9 +37,9 @@ public class ImparitiveVsDeclarative {
 		count = 0;
 		
 		Optional<Integer> resultOptional = numbers.stream()
-		.filter(n -> ImparitiveVsDeclarative.isEven(n, num -> num % 2 == 0))
-		.filter(n -> ImparitiveVsDeclarative.isGT5(n, num -> num > 5))		
-		.map(n -> ImparitiveVsDeclarative.returnDouble(n, num -> num * 2))
+		.filter(n -> isEven(n, num -> num % 2 == 0))
+		.filter(n -> isGT5(n, num -> num > 5))		
+		.map(n -> returnDouble(n, num -> num * 2))
 		.findFirst();
 		
 		

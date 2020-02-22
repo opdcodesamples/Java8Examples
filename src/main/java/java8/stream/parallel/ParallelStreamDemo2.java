@@ -9,8 +9,12 @@ class ParallelStreamDemo2 {
 	}
 
 	public static void main(String[] args) {
-		 ForkJoinPool commonPool = ForkJoinPool.commonPool();
-		 System.out.println(commonPool.getParallelism()); 
+		
+		System.out.println("No. of Processors: " + Runtime.getRuntime().availableProcessors());
+		
+		ForkJoinPool commonPool = ForkJoinPool.commonPool();
+		System.out.println("Parallel threads: " + commonPool.getParallelism()); 
+		System.out.println("Note that main thread (which is not dedicated in parallelism) can also join parallel processing when it's available\nSo effectively we have " + (commonPool.getParallelism() + 1) + " threads to work with"); 
 
 	}
 

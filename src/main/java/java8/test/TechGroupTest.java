@@ -1,4 +1,4 @@
-package java8.stream.flatmap;
+package java8.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;

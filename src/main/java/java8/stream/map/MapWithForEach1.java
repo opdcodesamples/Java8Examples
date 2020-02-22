@@ -10,7 +10,10 @@ class MapWithForEach1 {
 		System.out.println("\n Unsorted list: " + names);
 		
 		System.out.println("\n sorted list in upper case"); 
-		names.stream().map(String::toUpperCase).sorted(String::compareTo).forEach(System.out::println);
+		names.stream()
+				.map(String::toUpperCase)
+				.sorted(String::compareTo)
+				.forEach(System.out::println);
 
 	}
 

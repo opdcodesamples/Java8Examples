@@ -22,7 +22,7 @@ class MovingAverageDemo {
 		if(average.isPresent()) {
 			double startingAvg =  average.getAsDouble();
 			System.out.println("Average of first 10: " + startingAvg);
-			int skipCount = 1;
+			int skipCount = 0;
 			for(int i = 0; i <numbers.length; ++ i) {
 				OptionalDouble movingAvgOption = Arrays.stream(numbers).boxed().skip(skipCount++).limit(10).mapToInt((a) -> a).average();
 				if(movingAvgOption.isPresent()) {
