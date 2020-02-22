@@ -1,10 +1,8 @@
-package java8.sorting.employee;
+package java8.models;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-
-import java8.models.Employee;
 
 public class EmployeeGenerator {
 	
@@ -15,14 +13,15 @@ public class EmployeeGenerator {
 		employeeArray = new Employee[] {
 				new Employee("Noel",44, 90000, Calendar.getInstance()),
 				new Employee("Samuel",39, 130000, Calendar.getInstance()),
-				new Employee("Ankur",30, 120000, Calendar.getInstance()),
-				new Employee("Kalam",45, 125000, Calendar.getInstance()),
+				new Employee("Samuel",30, 120000, Calendar.getInstance()),
+				new Employee("Jacob",45, 125000, Calendar.getInstance()),
 				new Employee("Larry",27, 65000, Calendar.getInstance()),
 				new Employee("John",24, 75000, Calendar.getInstance()),
-				new Employee("India",23, 73000, Calendar.getInstance()),
-				new Employee("Chandra",44, 90000, Calendar.getInstance()),
-				new Employee("Talat",32, 140000, Calendar.getInstance()),
-				new Employee("Jag",42, 120000, Calendar.getInstance()),
+				new Employee("John",23, 73000, Calendar.getInstance()),
+				new Employee("Jack",44, 90000, Calendar.getInstance()),
+				new Employee("Toby",32, 140000, Calendar.getInstance()),
+				new Employee("Jack",42, 120000, Calendar.getInstance()),
+				new Employee("Toby",30, 120000, Calendar.getInstance()),
 				null
 				
 		};

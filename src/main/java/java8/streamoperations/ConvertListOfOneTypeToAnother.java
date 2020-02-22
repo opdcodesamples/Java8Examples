@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import java8.models.Employee;
+import java8.models.EmployeeGenerator;
 import java8.models.Parent;
-import java8.sorting.employee.EmployeeGenerator;
 
 public class ConvertListOfOneTypeToAnother {
 
