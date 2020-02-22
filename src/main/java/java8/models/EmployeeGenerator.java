@@ -11,13 +11,13 @@ public class EmployeeGenerator {
 	static {		
 		
 		employeeArray = new Employee[] {
-				new Employee("Noel",44, 90000, Calendar.getInstance()),
-				new Employee("Samuel",39, 130000, Calendar.getInstance()),
-				new Employee("Samuel",30, 120000, Calendar.getInstance()),
-				new Employee("Jacob",45, 125000, Calendar.getInstance()),
+				new Employee("Ben",44, 90000, Calendar.getInstance()),
+				new Employee("Richard",39, 130000, Calendar.getInstance()),
+				new Employee("Richard",30, 120000, Calendar.getInstance()),
+				new Employee("Mat",45, 125000, Calendar.getInstance()),
 				new Employee("Larry",27, 65000, Calendar.getInstance()),
 				new Employee("John",24, 75000, Calendar.getInstance()),
-				new Employee("John",23, 73000, Calendar.getInstance()),
+				new Employee("John",44, 73000, Calendar.getInstance()),
 				new Employee("Jack",44, 90000, Calendar.getInstance()),
 				new Employee("Toby",32, 140000, Calendar.getInstance()),
 				new Employee("Jack",42, 120000, Calendar.getInstance()),

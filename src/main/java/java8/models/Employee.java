@@ -1,19 +1,21 @@
 package java8.models;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 public class Employee {
 	
 	private String name;
 	private int age;
-	private long salary;
+	private double salary;
 	private Calendar joiningDate;
+	private static DecimalFormat df = new DecimalFormat("0.00");
 	
 	public Employee() {
 		
 	}
 	
-	public Employee(String name, int age, int salary, Calendar joiningDate) {
+	public Employee(String name, int age, double salary, Calendar joiningDate) {
 		this.name = name;
 		this.age = age;
 		this.salary = salary;
@@ -32,10 +34,10 @@ public class Employee {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public long getSalary() {
+	public double getSalary() {
 		return salary;
 	}
-	public void setSalary(long salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
 	public Calendar getJoiningDate() {
@@ -47,6 +49,8 @@ public class Employee {
 	
 	
 	
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,7 +58,9 @@ public class Employee {
 		result = prime * result + age;
 		result = prime * result + ((joiningDate == null) ? 0 : joiningDate.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + (int) (salary ^ (salary >>> 32));
+		long temp;
+		temp = Double.doubleToLongBits(salary);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -79,14 +85,14 @@ public class Employee {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (salary != other.salary)
+		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", age=" + age + ", salary=" + salary + ", joiningDate=" + joiningDate + "]";
+		return "Employee [name=" + name + ", age=" + age + ", salary=" + df.format(salary) + ", joiningDate=" + joiningDate.getTime() + "]";
 	}
 	
 	
