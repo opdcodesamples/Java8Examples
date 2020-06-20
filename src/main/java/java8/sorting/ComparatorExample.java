@@ -1,4 +1,4 @@
-package java8.test;
+package java8.sorting;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-class Solution {
+class ComparatorExample {
 	private static int solution(int[] A) {
 		
 		//Ignoring below list

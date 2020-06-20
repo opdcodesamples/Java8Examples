@@ -1,4 +1,4 @@
-package java8.test;
+package java8.streamoperations;
 
 
 import java.util.Arrays;
