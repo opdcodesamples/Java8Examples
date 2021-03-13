@@ -7,22 +7,17 @@ import java.util.function.Consumer;
 class SimpleConsumer2 {
 
 	public static void main(String[] args) {
+		
+		Consumer<String> consumer = (name) -> System.out.println(String.format("name is : %s", name));;		
+		
 		List<String> names = new ArrayList<>();
 		
 		names.add("alpha");
 		names.add("beta");
 		names.add("gamma");
 		
-		names.stream().forEach((name) -> showConsumer( name, (n) -> { System.out.println(n); })); 
-		names.stream().forEach((name) -> showConsumer( name, (n) -> { System.out.println( "this is " + n); })); 
-		names.stream().forEach((name) -> showConsumer( name, (n) -> { System.out.println( n.toUpperCase()); })); 
-		
+		names.stream().forEach((n) -> consumer.accept(n)); 		
 
 	}
-	
-	public static void showConsumer(String name, Consumer<String> c) {
-		c.accept(name);
-
-	}	
 
 }

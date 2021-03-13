@@ -42,30 +42,44 @@ class TransactionTest {
 		
 		try{
 			System.out.println("\n simply printing USD transactions	");
-			transactionList.stream().filter((t) -> "USD".equals(t.getCurrency()) ).forEach(System.out::println);
+			transactionList.stream()
+							.filter((t) -> "USD".equals(t.getCurrency()) )
+							.forEach(System.out::println);
 			
-			List<Transaction> usdTransactions = transactionList.stream().filter((t) -> "USD".equals(t.getCurrency()) ).collect(Collectors.toList());
+			List<Transaction> usdTransactions = transactionList
+												.stream()
+												.filter((t) -> "USD".equals(t.getCurrency()))
+												.collect(Collectors.toList());
 			System.out.println("All USD Transactions: " + usdTransactions);
 			
 			EquivalentUSDValue equivalentUSDValue = new EquivalentUSDValue();
 			Function<Transaction, Transaction> convertToUSD = equivalentUSDValue::getUSDValue;
 			
 			System.out.println("\n sorting by USD value");
-			transactionList.stream().map(convertToUSD::apply).sorted(Comparator.comparingDouble(Transaction::getUsdValue)).forEach(System.out::println);
+			transactionList.stream()
+							.map(convertToUSD::apply)
+							.sorted(Comparator.comparingDouble(Transaction::getUsdValue))
+							.forEach(System.out::println);
 			
 			System.out.println("\n sorting by currency name"); 
-			transactionList.stream().map(convertToUSD::apply).sorted(Comparator.comparing(Transaction::getCurrency)).forEach(System.out::println);
+			transactionList.stream()
+							.map(convertToUSD::apply)
+							.sorted(Comparator.comparing(Transaction::getCurrency))
+							.forEach(System.out::println);
 			
 			System.out.println("\n counting ");
 			long bigTransactions = 
-					transactionList.stream().filter((t) -> t.getUsdValue() > 40000).count();
+					transactionList.stream()
+									.filter((t) -> t.getUsdValue() > 40000)
+									.count();
 			
 			System.out.println("Big Transactions count: " + bigTransactions);
 			
 			System.out.println("\n grouping by currency");
 			Map<String, List<Transaction>> bigTransactionsByCurrency = 
-					transactionList.stream().filter((Transaction t) -> t.getValue() > 50000).
-					collect(Collectors.groupingBy(Transaction::getCurrency));
+					transactionList.stream()
+									.filter((Transaction t) -> t.getValue() > 50000)
+									.collect(Collectors.groupingBy(Transaction::getCurrency));
 			
 			System.out.println("Big Transactions By Currency: " + bigTransactionsByCurrency);
 			

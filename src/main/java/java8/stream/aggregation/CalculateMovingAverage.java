@@ -13,7 +13,12 @@ public class CalculateMovingAverage {
 	
 		for(int skipCount=0;  studentMarks.length - skipCount >= 10 ; ++skipCount) {
 			
-			OptionalDouble optional = Arrays.stream(studentMarks).skip(skipCount).limit(10).boxed().mapToDouble(o->o).average();
+			OptionalDouble optional = Arrays.stream(studentMarks)
+											.skip(skipCount)
+											.limit(10)
+											.boxed()
+											.mapToDouble(o->o)
+											.average();
 			if(optional.isPresent()) {
 				System.out.println(skipCount + ") Average: "  + optional.getAsDouble());
 			}
