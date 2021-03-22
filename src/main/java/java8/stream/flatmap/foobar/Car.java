@@ -3,11 +3,11 @@ package java8.stream.flatmap.foobar;
 import java.util.ArrayList;
 import java.util.List;
 
-class Foo {
+class Car {
 	final String name;
-	final List<Bar> bars = new ArrayList<>();
+	final List<Wheel> wheels = new ArrayList<>();
 
-	Foo(String name) {
+	Car(String name) {
 		this.name = name;
 	}
 }
