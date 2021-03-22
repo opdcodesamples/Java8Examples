@@ -24,13 +24,13 @@ class AppleFiltrationTest {
 		appleList.add(new Apple(65.33, "Red"));
 
 		final List<Apple> filteredAppleList1 = filterApples(appleList, a -> "Green".equals(a.getColor()), a -> System.out.println(a.toString()) );
-		System.out.println("Green Apples using Predicate: " + filteredAppleList1);
+		System.out.println("Green Apples by calling Predicate method: " + filteredAppleList1);
 		
 		final List<Apple> greenApples = appleList.stream().filter(a -> "Green".equals(a.getColor())).collect(Collectors.toList());
-		System.out.println("Green Apples using stream: " + greenApples);
+		System.out.println("Green Apples by passing filter Predicate in stream: " + greenApples);
 		
 		final List<Apple> filteredAppleList2 = filterApples(appleList, a -> "Red".equals(a.getColor()), a -> System.out.println(a.toString()));
-		System.out.println("Red Apples: " + filteredAppleList2);
+		System.out.println("Red Apples by calling Predicate method: " + filteredAppleList2);
 		
 		final List<Apple> filteredAppleList3 = filterApples(appleList, a -> a.getWeight() > 50, a -> System.out.println(a.toString()));
 		System.out.println("Apples heavier than 50 grams: " + filteredAppleList3);
