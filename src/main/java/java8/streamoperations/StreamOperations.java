@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import java8.models.Employee;
@@ -53,15 +54,15 @@ public class StreamOperations<T> {
 		
 		// Set of Employee Names in UpperCase in ascending order
 		System.out.println(NEWLINE);
-		System.out.println("Set of Employee Names in UpperCase in ascending order (broken) ???????????????"  );
-		employees.stream()
+		System.out.println("List of Employee Names in UpperCase in ascending order:"  );
+		List<String> sortedEmployeeNames = employees.stream()
 				.filter(e -> e != null)	
 				.map(Employee::getName)
 				.map(String::toUpperCase)
 				.sorted()
-				.collect(Collectors.toSet())
+				.collect(Collectors.toList());
 				
-				.forEach(System.out::println);
+		sortedEmployeeNames.forEach(System.out::println);
 		
 		// Employee Names in a single (Joining) String
 		System.out.println(NEWLINE);
